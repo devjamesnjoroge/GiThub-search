@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { GiThubProfile } from '../gitHub/gi-thub-profile';
 import { GitHubService } from '../gitHub/git-hub.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class MyProfileComponent implements OnInit {
 
   REPOS_URL!: string;
 
-  repos!: any[];
+  repos!: GiThubProfile[];
 
   constructor(private service: GitHubService, private http: HttpClient) { }
 
@@ -28,6 +29,7 @@ export class MyProfileComponent implements OnInit {
     this.service.getGitHubRepo().subscribe(
       data => {
         this.repos = data;
+        console.log(data[1].html_url)
       }
     )
 

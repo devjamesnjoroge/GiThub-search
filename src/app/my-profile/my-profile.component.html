@@ -19,9 +19,13 @@
             <th>Repository name</th>
             <th>Repository url</th>
         </tr>
-        <tr *ngFor="">
-            <td></td>
-            <td></td>
+        <tr *ngFor="let repo of repos">
+            <td>{{repo.name}}</td>
+            <td>
+                <a [href]="repo.html_url">
+                    <p [outerText]="repo.html_url"></p>
+                </a>
+            </td>
         </tr>
     </table>
 </div>

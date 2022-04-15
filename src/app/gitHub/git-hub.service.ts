@@ -17,7 +17,7 @@ export class GitHubService {
     return this.http.get<GitHubUser>(`${this.BASE_URL}?${environment.API_KEY}`)
   }
 
-  getGitHubRepo() {
-    return this.http.get<any[]>(`${this.BASE_URL}/repos?${environment.API_KEY}`)
+  getGitHubRepo(): Observable<GitHubUser[]> {
+    return this.http.get<GitHubUser[]>(`${this.BASE_URL}/repos?${environment.API_KEY}`)
   }
 }
