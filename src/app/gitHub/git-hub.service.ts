@@ -9,11 +9,15 @@ import { GitHubUser } from './git-hub-user';
 })
 export class GitHubService {
 
-  BASE_URL = 'https://api.github.com/users/devjamesnjoroge?'
+  BASE_URL = 'https://api.github.com/users/devjamesnjoroge'
 
   constructor(private http: HttpClient) { }
 
   getGitHubProfile(): Observable<GitHubUser> {
-    return this.http.get<GitHubUser>(`${this.BASE_URL}${environment.API_KEY}`)
+    return this.http.get<GitHubUser>(`${this.BASE_URL}?${environment.API_KEY}`)
+  }
+
+  getGitHubRepo() {
+    return this.http.get<any[]>(`${this.BASE_URL}/repos?${environment.API_KEY}`)
   }
 }
