@@ -1,0 +1,16 @@
+.logo,
+.myprofile {
+    cursor: pointer;
+}
+
+.myprofile {
+    height: 40px;
+    width: 40px;
+    background: url('~../../assets/myprofile.png');
+    background-position: center;
+    background-size: cover;
+}
+
+#search {
+    transform: scale(0.8);
+}
