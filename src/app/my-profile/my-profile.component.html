@@ -4,7 +4,7 @@
 
         <div class="logo"><img src="../../assets/github.svg" alt="github icon"></div>
 
-        <div class="search"><input type="search" name="search" id="search" placeholder="search github username" class="ps-3"> <button class="bg-transparent"><img src="../../assets/search.svg" alt="search icon"></button></div>
+        <form class="search"><input #search type="search" name="search" id="search" placeholder="search github username" class="ps-3"> <button class="bg-transparent"><img src="../../assets/search.svg" alt="search icon"></button></form>
 
         <!-- Links -->
         <div class="myprofile rounded-circle " routerLink="devjamesnjoroge"></div>
@@ -13,7 +13,14 @@
 
 </nav>
 
-<div class="container d-flex align-items-center justify-content-center mt-5">
+<div class="container d-flex align-items-center justify-content-center mt-5 flex-column">
+
+    <div class="profile">
+        <p><strong>Github name:</strong> {{profile}}</p>
+        <p><strong>Github username:</strong> {{username}}</p>
+    </div>
+
+
     <table class="bg-light">
         <tr>
             <th>Repository name</th>
@@ -22,7 +29,7 @@
         <tr *ngFor="let repo of repos">
             <td>{{repo.name}}</td>
             <td>
-                <a [href]="repo.html_url">
+                <a [href]="repo.html_url" target="_blank">
                     <p [outerText]="repo.html_url"></p>
                 </a>
             </td>

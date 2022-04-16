@@ -9,7 +9,9 @@ import { GitHubUser } from './git-hub-user';
 })
 export class GitHubService {
 
-  BASE_URL = 'https://api.github.com/users/devjamesnjoroge'
+  username = 'devjamesnjoroge'
+
+  BASE_URL = `https://api.github.com/users/${this.username}`
 
   constructor(private http: HttpClient) { }
 
