@@ -1,10 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { GiThubProfile } from '../gitHub/gi-thub-profile';
-import { GiThubRepo } from '../gitHub/gi-thub-repo';
-import { GitHubUser } from '../gitHub/git-hub-user';
-import { GitHubService } from '../gitHub/git-hub.service';
+import { GiThubProfile } from '../classes/gi-thub-profile';
+import { GiThubRepo } from '../classes/gi-thub-repo';
+import { GitHubUser } from '../classes/git-hub-user';
+import { GitHubService } from '../services/git-hub.service';
+
 
 @Component({
   selector: 'app-search',
