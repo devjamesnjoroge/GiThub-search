@@ -5,6 +5,36 @@
     font-family: 'Fira Code', monospace;
 }
 
+body {
+    background-color: rgb(10, 15, 66);
+}
+
+.profile {
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+    padding: 5% 0;
+    color: #f1f1f1;
+}
+
+#avatar {
+    border-radius: 50%;
+    height: 15rem;
+    width: 15rem;
+}
+
+.profile p {
+    max-width: 30vw;
+}
+
+th {
+    color: gold;
+}
+
+td {
+    color: #f1f1f1;
+}
+
 td,
 th {
     border: 1px solid #dddddd;

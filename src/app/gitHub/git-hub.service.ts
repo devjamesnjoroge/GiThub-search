@@ -29,20 +29,20 @@ export class GitHubService {
     return this.http.get<GitHubUser[]>(`${this.BASE_URL}${this.username}/repos?${environment.API_KEY}`)
   }
 
-  searchUser(searchQuery: any) {
+  // searchUser(searchQuery: any) {
 
-    event?.preventDefault()
+  //   event?.preventDefault()
 
-    this.http.get<GitHubUser>(`${this.BASE_URL}${searchQuery}?${environment.API_KEY}`)
-      .subscribe(data => {
-        this.profile = data;
-      })
+  //   this.http.get<GitHubUser>(`${this.BASE_URL}${searchQuery}?${environment.API_KEY}`)
+  //     .subscribe(data => {
+  //       this.profile = data;
+  //     })
 
-    this.http.get<GitHubUser[]>(`${this.BASE_URL}${searchQuery}/repos?${environment.API_KEY}`)
-      .subscribe(data => {
-        this.repos = data
-      })
+  //   this.http.get<GitHubUser[]>(`${this.BASE_URL}${searchQuery}/repos?${environment.API_KEY}`)
+  //     .subscribe(data => {
+  //       this.repos = data
+  //     })
 
 
-  }
+  // }
 }

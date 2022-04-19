@@ -11,9 +11,8 @@ import { GitHubService } from '../gitHub/git-hub.service';
 })
 export class MyProfileComponent implements OnInit {
 
-  profile!: string;
+  profile!: GiThubProfile;
 
-  username!: string;
 
   repos!: GiThubProfile[];
 
@@ -23,8 +22,10 @@ export class MyProfileComponent implements OnInit {
   ngOnInit(): void {
     this.service.getGitHubProfile().subscribe(
       data => {
-        this.profile = data.name
-        this.username = data.login
+        this.profile = data
+
+        console.log(data)
+
       }
     )
 
