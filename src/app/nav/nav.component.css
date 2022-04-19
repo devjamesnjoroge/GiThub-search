@@ -1,0 +1,39 @@
+.nav-bar {
+    display: flex;
+    align-items: center;
+    color: #f1f1f1;
+    background-color: rgb(10, 15, 66);
+    overflow: hidden;
+    padding: 0 8%;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo p {
+    margin-left: 2vw;
+}
+
+.nav {
+    margin-left: 25%;
+}
+
+.nav ul {
+    list-style: none;
+    cursor: pointer;
+}
+
+.nav ul li {
+    display: inline;
+    margin: 0 5vw;
+}
+
+.nav ul li a {
+    text-decoration: none;
+}
+
+.nav ul li a:hover {
+    color: blueviolet;
+}

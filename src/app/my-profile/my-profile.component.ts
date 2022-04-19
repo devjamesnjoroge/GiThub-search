@@ -11,8 +11,6 @@ import { GitHubService } from '../gitHub/git-hub.service';
 })
 export class MyProfileComponent implements OnInit {
 
-  REPOS_URL!: string;
-
   profile!: string;
 
   username!: string;
@@ -21,10 +19,10 @@ export class MyProfileComponent implements OnInit {
 
   constructor(private service: GitHubService, private http: HttpClient) { }
 
+
   ngOnInit(): void {
     this.service.getGitHubProfile().subscribe(
       data => {
-        this.REPOS_URL = data.repos_url;
         this.profile = data.name
         this.username = data.login
       }
@@ -33,7 +31,6 @@ export class MyProfileComponent implements OnInit {
     this.service.getGitHubRepo().subscribe(
       data => {
         this.repos = data;
-        console.log(data[1].html_url)
       }
     )
 
