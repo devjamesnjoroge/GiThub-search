@@ -1,4 +1,35 @@
 <div align="center" class="container search">
-    <input type="text" name="search" id="search">
-    <button type="button">search</button>
+    <input #searchQuery type="text" name="search" id="search">
+    <button type="button" (click)="searchUser(searchQuery.value)">search</button>
+</div>
+
+<div class="container d-flex align-items-center justify-content-center mt-5 flex-column">
+
+    <div class="profile">
+        <img [src]="profile.avatar_url" alt="avatar" id="avatar">
+
+        <div class="more-info">
+            <p>{{profile.login}}</p>
+            <p>{{profile.name}}</p>
+            <p>{{profile.bio}}</p>
+        </div>
+    </div>
+
+
+    <div align="center" class="container">
+        <table class="bg-light">
+            <tr>
+                <th>Repository name</th>
+                <th>Repository url</th>
+            </tr>
+            <tr *ngFor="let repo of repos">
+                <td>{{repo.name}}</td>
+                <td>
+                    <a [href]="repo.html_url" target="_blank">
+                        <p [outerText]="repo.html_url"></p>
+                    </a>
+                </td>
+            </tr>
+        </table>
+    </div>
 </div>

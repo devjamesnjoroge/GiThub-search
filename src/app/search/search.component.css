@@ -6,3 +6,7 @@ input,
 button {
     margin: 0 2vw;
 }
+
+button {
+    cursor: pointer;
+}
