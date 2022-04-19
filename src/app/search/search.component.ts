@@ -24,6 +24,8 @@ export class SearchComponent implements OnInit {
     this.http.get<GitHubUser>(`${this.service.BASE_URL}${searchQuery}?${environment.API_KEY}`)
       .subscribe(data => {
         this.profile = data;
+      }, err => {
+        alert("Invalid username, please doublecheck before searching")
       })
 
     this.http.get<GitHubUser[]>(`${this.service.BASE_URL}${searchQuery}/repos?${environment.API_KEY}`)
