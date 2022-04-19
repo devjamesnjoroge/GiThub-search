@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { GiThubProfile } from '../gitHub/gi-thub-profile';
+import { GiThubRepo } from '../gitHub/gi-thub-repo';
 import { GitHubUser } from '../gitHub/git-hub-user';
 import { GitHubService } from '../gitHub/git-hub.service';
 
@@ -13,7 +14,7 @@ import { GitHubService } from '../gitHub/git-hub.service';
 export class SearchComponent implements OnInit {
 
   profile!: GiThubProfile;
-  repos!: GiThubProfile[];
+  repos!: GiThubRepo[];
 
   constructor(private http: HttpClient, private service: GitHubService) { }
 
@@ -28,7 +29,7 @@ export class SearchComponent implements OnInit {
         alert("Invalid username, please doublecheck before searching")
       })
 
-    this.http.get<GitHubUser[]>(`${this.service.BASE_URL}${searchQuery}/repos?${environment.API_KEY}`)
+    this.http.get<GiThubRepo[]>(`${this.service.BASE_URL}${searchQuery}/repos?${environment.API_KEY}`)
       .subscribe(data => {
         this.repos = data
       })
