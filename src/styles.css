@@ -42,6 +42,11 @@ th {
     padding: 8px;
 }
 
+td a {
+    text-decoration: none;
+    color: #c7b8b8;
+}
+
 th:nth-child(1),
 td:nth-child(1) {
     width: 20vw;
