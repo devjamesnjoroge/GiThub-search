@@ -23,15 +23,49 @@ export class GitHubService {
 
   constructor(private http: HttpClient) { }
 
-
-
-  getGitHubProfile(): Observable<GitHubUser> {
-    return this.http.get<GitHubUser>(`${this.BASE_URL}${this.username}?${environment.API_KEY}`)
+  getGitHubProfile() {
+    let promise = new Promise<void>((resolve, reject) => {
+      this.http
+        .get<GitHubUser>(`${this.BASE_URL}${this.username}?${environment.API_KEY}`)
+        .subscribe({
+          next: (res) => {
+            this.profile = res
+            console.log(res)
+            resolve();
+          },
+          error: (error: any) => {
+            console.log('error')
+            reject(error);
+          },
+          complete: () => {
+            console.log('complete');
+          },
+        });
+    });
+    return promise;
   }
 
-  getGitHubRepo(): Observable<GiThubRepo[]> {
-    return this.http.get<GitHubUser[]>(`${this.BASE_URL}${this.username}/repos?${environment.API_KEY}`)
-  }
+  //REPO
 
+  getGitHubRepo() {
+    let promise = new Promise<void>((resolve, reject) => {
+      this.http
+        .get<GiThubRepo[]>(`${this.BASE_URL}${this.username}/repos?${environment.API_KEY}`)
+        .subscribe({
+          next: (res: GiThubRepo[]) => {
+            console.log(res)
+            this.repos = res;
+            resolve();
+          },
+          error: (error: any) => {
+            reject(error);
+          },
+          complete: () => {
+            console.log('complete');
+          },
+        });
+    });
+    return promise;
+  }
 
 }

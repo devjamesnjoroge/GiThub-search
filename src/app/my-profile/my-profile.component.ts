@@ -12,7 +12,7 @@ import { GitHubService } from '../services/git-hub.service';
 })
 export class MyProfileComponent implements OnInit {
 
-  profile!: GiThubProfile;
+  profile!: GiThubProfile
 
 
   repos!: GiThubRepo[];
@@ -21,18 +21,34 @@ export class MyProfileComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.service.getGitHubProfile().subscribe(
-      data => {
-        this.profile = data
 
-        console.log(data)
+    // this.apiCall.globalRepositorySearch(userInput).then(
+    //   (success) => {
+    //     this.globalRepoReturn = this.apiCall.repositories;
+    //     this.isRepositories = true;
+    //     this.isUsers = false;
+    //   },
+    //   (error) => {
+    //     alert('Repository not found');
+    //     console.log(error);
+    //   }
+    // );
 
+    this.service.getGitHubProfile().then(
+      (success) => {
+        this.profile = this.service.profile
+      },
+      (error) => {
+        console.log("An error occurred")
       }
     )
 
-    this.service.getGitHubRepo().subscribe(
-      data => {
-        this.repos = data;
+    this.service.getGitHubRepo().then(
+      (successful) => {
+        this.repos = this.service.repos
+      },
+      (error) => {
+        console.log("An error occurred")
       }
     )
 
