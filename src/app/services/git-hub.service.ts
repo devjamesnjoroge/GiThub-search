@@ -68,4 +68,51 @@ export class GitHubService {
     return promise;
   }
 
+  //SEARCH
+
+  getGitHubProfileSearch(searchQuery: any) {
+    let promise = new Promise<void>((resolve, reject) => {
+      this.http
+        .get<GitHubUser>(`${this.BASE_URL}${searchQuery}?${environment.API_KEY}`)
+        .subscribe({
+          next: (res) => {
+            this.profile = res
+            console.log(res)
+            resolve();
+          },
+          error: (error: any) => {
+            console.log('error')
+            reject(error);
+          },
+          complete: () => {
+            console.log('complete');
+          },
+        });
+    });
+    return promise;
+  }
+
+  //REPO
+
+  getGitHubRepoSearch(searchQuery: any) {
+    let promise = new Promise<void>((resolve, reject) => {
+      this.http
+        .get<GiThubRepo[]>(`${this.BASE_URL}${searchQuery}/repos?${environment.API_KEY}`)
+        .subscribe({
+          next: (res: GiThubRepo[]) => {
+            console.log(res)
+            this.repos = res;
+            resolve();
+          },
+          error: (error: any) => {
+            reject(error);
+          },
+          complete: () => {
+            console.log('complete');
+          },
+        });
+    });
+    return promise;
+  }
+
 }

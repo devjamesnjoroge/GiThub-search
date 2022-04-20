@@ -23,17 +23,23 @@ export class SearchComponent implements OnInit {
 
     event?.preventDefault()
 
-    this.http.get<GitHubUser>(`${this.service.BASE_URL}${searchQuery}?${environment.API_KEY}`)
-      .subscribe(data => {
-        this.profile = data;
-      }, err => {
-        alert("Invalid username, please doublecheck before searching")
-      })
+    this.service.getGitHubProfileSearch(searchQuery).then(
+      (success) => {
+        this.profile = this.service.profile
+      },
+      (error) => {
+        console.log("An error occurred")
+      }
+    )
+    this.service.getGitHubRepoSearch(searchQuery).then(
+      (success) => {
+        this.repos = this.service.repos
+      },
+      (error) => {
+        console.log("An error occurred")
+      }
+    )
 
-    this.http.get<GiThubRepo[]>(`${this.service.BASE_URL}${searchQuery}/repos?${environment.API_KEY}`)
-      .subscribe(data => {
-        this.repos = data
-      })
 
 
   }
