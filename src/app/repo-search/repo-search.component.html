@@ -1,8 +1,11 @@
 <div align="center" class="container search">
-    <input #searchQuery type="text" name="search" id="search" placeholder="search github username">
+    <input #searchQuery type="text" name="search" id="search" placeholder="search github repository">
     <button type="button" (click)="searchRepo(searchQuery.value)">search</button>
 </div>
 
-<div class="container">
-    <p>{{searchRepos}}</p>
+<div class="container repo-images" *ngFor="let searchRepo of searchRepos">
+
+    <img [src]="searchRepo.owner.avatar_url">
+    <a [href]="searchRepo.html_url">Live link</a>
+
 </div>

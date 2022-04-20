@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Items } from '../classes/items';
 import { GitHubService } from '../services/git-hub.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { GitHubService } from '../services/git-hub.service';
 })
 export class RepoSearchComponent implements OnInit {
 
-  searchRepos!: any[]
+  searchRepos!: Items[]
 
   constructor(private service: GitHubService) { }
 

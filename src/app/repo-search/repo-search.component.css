@@ -1,0 +1,35 @@
+.search {
+    padding: 4% 0;
+}
+
+input,
+button {
+    margin: 0 5vw;
+    transform: scale(1.5);
+}
+
+button {
+    cursor: pointer;
+}
+
+.repo-images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-evenly;
+}
+
+.repo-images img {
+    height: 18rem;
+    width: 18rem;
+    margin-bottom: 2rem;
+}
+
+.repo-images a {
+    background-color: rgb(22, 22, 22);
+    padding: 5px 15px;
+    border-radius: 3px;
+    text-decoration: none;
+    color: gold;
+}
