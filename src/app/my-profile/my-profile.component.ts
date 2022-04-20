@@ -22,20 +22,8 @@ export class MyProfileComponent implements OnInit {
 
   ngOnInit(): void {
 
-    // this.apiCall.globalRepositorySearch(userInput).then(
-    //   (success) => {
-    //     this.globalRepoReturn = this.apiCall.repositories;
-    //     this.isRepositories = true;
-    //     this.isUsers = false;
-    //   },
-    //   (error) => {
-    //     alert('Repository not found');
-    //     console.log(error);
-    //   }
-    // );
-
     this.service.getGitHubProfile().then(
-      (success) => {
+      (successful) => {
         this.profile = this.service.profile
       },
       (error) => {

@@ -1,9 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { environment } from 'src/environments/environment';
 import { GiThubProfile } from '../classes/gi-thub-profile';
 import { GiThubRepo } from '../classes/gi-thub-repo';
-import { GitHubUser } from '../classes/git-hub-user';
 import { GitHubService } from '../services/git-hub.service';
 
 
@@ -24,7 +22,7 @@ export class SearchComponent implements OnInit {
     event?.preventDefault()
 
     this.service.getGitHubProfileSearch(searchQuery).then(
-      (success) => {
+      (successful) => {
         this.profile = this.service.profile
       },
       (error) => {
@@ -32,7 +30,7 @@ export class SearchComponent implements OnInit {
       }
     )
     this.service.getGitHubRepoSearch(searchQuery).then(
-      (success) => {
+      (successful) => {
         this.repos = this.service.repos
       },
       (error) => {
