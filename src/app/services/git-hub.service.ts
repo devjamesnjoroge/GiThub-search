@@ -1,8 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { rejects } from 'assert';
-import { resolve } from 'dns';
-import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { GiThubProfile } from '../classes/gi-thub-profile';
 import { GiThubRepo } from '../classes/gi-thub-repo';
@@ -121,11 +118,7 @@ export class GitHubService {
 
   searchGithubRepo(searchQuery: any) {
     let promise = new Promise<void>((resolve, reject) => {
-      this.http.get(`https://api.github.com/search/repositories?q=${searchQuery}`, {
-        headers: {
-          Authorisation: `token${environment.API_KEY}`
-        }
-      })
+      this.http.get(`https://api.github.com/search/repositories?q=${searchQuery}`)
         .subscribe(
           {
             next: (data: any) => {
@@ -142,7 +135,7 @@ export class GitHubService {
           }
         )
     })
-    return promise
+    return promise;
   }
 
 }

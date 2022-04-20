@@ -1,0 +1,8 @@
+<div align="center" class="container search">
+    <input #searchQuery type="text" name="search" id="search" placeholder="search github username">
+    <button type="button" (click)="searchRepo(searchQuery.value)">search</button>
+</div>
+
+<div class="container">
+    <p>{{searchRepos}}</p>
+</div>

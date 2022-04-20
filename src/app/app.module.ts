@@ -9,6 +9,7 @@ import { MyProfileComponent } from './my-profile/my-profile.component';
 import { NavComponent } from './nav/nav.component';
 import { SearchComponent } from './search/search.component';
 import { HighlightDirectiveDirective } from './directives/highlight-directive.directive';
+import { RepoSearchComponent } from './repo-search/repo-search.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { HighlightDirectiveDirective } from './directives/highlight-directive.di
     NavComponent,
     SearchComponent,
     HighlightDirectiveDirective,
+    RepoSearchComponent,
   ],
   imports: [
     BrowserModule,
